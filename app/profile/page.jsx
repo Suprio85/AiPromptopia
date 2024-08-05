@@ -33,7 +33,7 @@ const profile = () => {
 
 
   const handleEdit = async(prompt)=>{
-   router.push(`/edit-prompt?id=${prompt._id}`);
+   router.push(`/edit-prompt/${prompt._id}`);
 
   }
 
