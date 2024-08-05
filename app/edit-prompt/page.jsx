@@ -1,6 +1,6 @@
 "use client";
 import Form from "@components/Form";
-import { useState,useEffect } from "react";
+import { useState,useEffect,Suspense } from "react";
 import { useSearchParams,useRouter } from "next/navigation";
 
 
@@ -80,15 +80,17 @@ const updatePrompt = async (e)=>{
 }
 
 
-  return (
-    <Form
-    type="update"
-    post={post}
-    setPost={setPost}
-    submitting={submitting}  
-    handleSubmit={updatePrompt}
-    />
-  )
+return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Form
+        type="update"
+        post={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={updatePrompt}
+      />
+    </Suspense>
+  );
 }
 
 export default EditPrompt
